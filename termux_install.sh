@@ -99,12 +99,8 @@ else
 fi
 
 cd $HOME
-git clone https://github.com/TechnoIndian/Apktool || exit 2
-cd Apktool && chmod +x * && bash setup.sh || exit 2
-
-cd $HOME
-if [ -d "dex2c" ]; then
-  cd dex2c
+if [ -d "Dex2c" ]; then
+  cd Dex2c
 elif [ -f "dcc.py" ] && [ -d "tools" ]; then
   :
 else
@@ -112,14 +108,18 @@ else
   cd Dex2c || exit 2
 fi
 
-if [ -f "$HOME/dex2c/tools/apktool.jar" ]; then
-  rm $HOME/dex2c/tools/apktool.jar
-  cp $PREFIX/bin/apktool.jar $HOME/dex2c/tools/apktool.jar
+if [ -f "$HOME/Dex2c/tools/apktool.jar" ]; then
+  rm $HOME/Dex2c/tools/apktool.jar
+  cp $PREFIX/bin/apktool.jar $HOME/Dex2c/tools/apktool.jar
 else
-sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -O $HOME/dex2c/tools/apktool.jar'
+sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -O $HOME/Dex2c/tools/apktool.jar'
 fi
 
-cd ~/dex2c
+cd $HOME
+git clone https://github.com/TechnoIndian/Apktool || exit 2
+cd Apktool && chmod +x * && bash setup.sh || exit 2
+
+cd ~/Dex2c
 python3 -m pip install -U -r requirements.txt || exit 2
 
 if [ -f ".bashrc" ]; then
@@ -151,7 +151,7 @@ export ANDROID_NDK_ROOT=$HOME/android-sdk/ndk/$ndk_version
 EOL
 fi
 
-cat > $HOME/dex2c/dcc.cfg << EOL
+cat > $HOME/Dex2c/dcc.cfg << EOL
 {
     "apktool": "tools/apktool.jar",
     "ndk_dir": "$HOME/android-sdk/ndk/$ndk_version",
@@ -168,5 +168,5 @@ cat > $HOME/dex2c/dcc.cfg << EOL
 EOL
 
 echo "${green}============================"
-echo "Great! dex2c installed successfully!"
+echo "Great! Dex2c installed successfully!"
 echo "============================${nocolor}"
