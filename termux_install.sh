@@ -99,13 +99,17 @@ else
 fi
 
 cd $HOME
+git clone https://github.com/TechnoIndian/Apktool || exit 2
+cd Apktool && chmod +x * && bash setup.sh || exit 2
+
+cd $HOME
 if [ -d "dex2c" ]; then
   cd dex2c
 elif [ -f "dcc.py" ] && [ -d "tools" ]; then
   :
 else
-  git clone https://github.com/ratsan/dex2c || exit 2
-  cd dex2c || exit 2
+  git clone https://github.com/TechnoIndian/Dex2c || exit 2
+  cd Dex2c || exit 2
 fi
 
 if [ -f "$HOME/dex2c/tools/apktool.jar" ]; then
