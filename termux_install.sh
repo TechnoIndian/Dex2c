@@ -108,7 +108,12 @@ else
   cd Dex2c || exit 2
 fi
 
-cp $PREFIX/bin/apktool.jar $HOME/Dex2c/tools/apktool.jar
+if [ -f "$HOME/dex2c/tools/apktool.jar" ]; then
+  rm $HOME/dex2c/tools/apktool.jar
+  cp $PREFIX/bin/apktool.jar $HOME/dex2c/tools/apktool.jar
+else
+sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.1.jar -O $HOME/dex2c/tools/apktool.jar'
+fi
 
 cd $HOME
 git clone https://github.com/TechnoIndian/Apktool || exit 2
