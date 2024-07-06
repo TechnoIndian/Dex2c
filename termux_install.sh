@@ -116,8 +116,7 @@ sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.ja
 fi
 
 cd $HOME
-git clone https://github.com/TechnoIndian/Apktool || exit 2
-cd Apktool && chmod +x * && bash setup.sh || exit 2
+curl -s https://raw.githubusercontent.com/TechnoIndian/Apktool/main/ApkTool-in-Termux.sh | bash || exit 2
 
 cd ~/Dex2c
 python3 -m pip install -U -r requirements.txt || exit 2
