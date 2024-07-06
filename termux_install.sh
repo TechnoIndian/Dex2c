@@ -20,7 +20,7 @@ note="$(tput setaf 6)"
 
 echo "${green}━━━ Basic Requirements Setup ━━━${nocolor}"
 
-pkg install -y python git cmake rust clang make wget ndk-sysroot zlib libxml2 libxslt pkg-config libjpeg-turbo build-essential binutils openssl
+pkg install -y python git cmake rust clang make wget ndk-sysroot zlib libxml2 libxslt pkg-config libjpeg-turbo build-essential binutils openssl openjdk-17
 # UnComment below line if you face clang error during installation procedure
 # _file=$(find $PREFIX/lib/python3.11/_sysconfigdata*.py)
 # rm -rf $PREFIX/lib/python3.11/__pycache__
@@ -115,9 +115,6 @@ else
 sh -c 'wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -O $HOME/Dex2c/tools/apktool.jar'
 fi
 
-cd $HOME
-curl -s https://raw.githubusercontent.com/TechnoIndian/Apktool/main/ApkTool-in-Termux.sh | bash || exit 2
-
 cd ~/Dex2c
 python3 -m pip install -U -r requirements.txt || exit 2
 
@@ -165,7 +162,8 @@ cat > $HOME/Dex2c/dcc.cfg << EOL
     }
 }
 EOL
-
+clear
+termux-open-url https://t.me/rktechnoindians/749
 echo "${green}============================"
 echo "Great! Dex2c installed successfully!"
 echo "============================${nocolor}"
