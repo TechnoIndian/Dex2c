@@ -15,7 +15,7 @@
 
 ## Original Source
 
-[![Github](https://img.shields.io/badge/Telegram-red?style=for-the-badge&logo=Telegram)](https://github.com/codehasan/dex2c)
+[![Github](https://img.shields.io/badge/GitHub-red?style=for-the-badge&logo=github)](https://github.com/codehasan/dex2c)
   
   <p align="center">
     Method-based AOT compiler that can wrap Dalvik bytecode with JNI native code.
